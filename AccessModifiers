@@ -1,0 +1,39 @@
+package accessmodifiers; // A different package for demonstration
+
+public class AccessModifiers {
+
+    public int publicVar = 42;
+    private int privateVar = 10;
+    protected int protectedVar = 20;
+    int defaultVar = 30; // Default (no modifier)
+
+    public void publicMethod() {
+        System.out.println("This is a public method.");
+    }
+
+    private void privateMethod() {
+        System.out.println("This is a private method.");
+    }
+
+    protected void protectedMethod() {
+        System.out.println("This is a protected method.");
+    }
+
+    void defaultMethod() {
+        System.out.println("This is a default method.");
+    }
+
+    public static void main(String[] args) {
+        AccessModifiers demo = new AccessModifiers();
+
+        System.out.println("Public variable: " + demo.publicVar);
+        System.out.println("Private variable: " + demo.privateVar); // This will cause a compile-time error
+        System.out.println("Protected variable: " + demo.protectedVar);
+        System.out.println("Default variable: " + demo.defaultVar);
+
+        demo.publicMethod();
+        demo.privateMethod(); // This will cause a compile-time error
+        demo.protectedMethod();
+        demo.defaultMethod();
+    }
+}
