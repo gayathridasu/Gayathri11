@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.List;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+        // Create a HashMap to store key-value pairs
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("one", 1);
+        hashMap.put("two", 2);
+        hashMap.put("three", 3);
+
+        System.out.println("HashMap:");
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // Create an ArrayList to store a list of values
+        List<String> arrayList = new ArrayList<>();
+        arrayList.add("first");
+        arrayList.add("second");
+        arrayList.add("third");
+
+        System.out.println("\nArrayList:");
+        for (String item : arrayList) {
+            System.out.println(item);
+        }
+
+        // Create a HashSet to store a set of unique values
+        Set<String> hashSet = new HashSet<>();
+        hashSet.add("red");
+        hashSet.add("green");
+        hashSet.add("blue");
+
+        System.out.println("\nHashSet:");
+        for (String color : hashSet) {
+            System.out.println(color);
+        }
+    }
+}
