@@ -1,0 +1,32 @@
+public class ConstructorDemo {
+    private int value;
+
+    // Default constructor
+    public ConstructorDemo() {
+        value = 0;
+    }
+
+    // Constructor with a parameter
+    public ConstructorDemo(int value) {
+        this.value = value;
+    }
+
+    // Constructor overloading
+    public ConstructorDemo(String str) {
+        value = Integer.parseInt(str);
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public static void main(String[] args) {
+        ConstructorDemo defaultConstructor = new ConstructorDemo();
+        ConstructorDemo parameterizedConstructor = new ConstructorDemo(42);
+        ConstructorDemo stringConstructor = new ConstructorDemo("10");
+
+        System.out.println("Default Constructor: " + defaultConstructor.getValue());
+        System.out.println("Parameterized Constructor: " + parameterizedConstructor.getValue());
+        System.out.println("String Constructor: " + stringConstructor.getValue());
+    }
+}
