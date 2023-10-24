@@ -1,0 +1,20 @@
+package Typecasting;
+
+public class TypeCasting {
+    public static void main(String[] args) {
+
+        // Implicit type casting
+        int a = 10;
+        double b = 20.5;
+        double sum = a + b; // Implicit type casting from int to double
+
+        System.out.println("Implicit type casting: " + sum);
+
+        // Explicit type casting
+        String c = "10";
+        String d = "20.5";
+        float sum2 = Float.parseFloat(c) + Float.parseFloat(d); // Explicit type casting from String to float
+
+        System.out.println("Explicit type casting: " + sum2);
+    }
+}
