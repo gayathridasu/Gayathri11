@@ -1,0 +1,22 @@
+import java.util.regex.*;
+
+public class RegularExpression {
+
+    public static void main(String[] args) {
+        String text = "The quick brown fox jumps over the lazy dog";
+
+        // Define a regular expression pattern
+        String regex = "fox";
+
+        // Compile the pattern
+        Pattern pattern = Pattern.compile(regex);
+
+        // Create a Matcher for the given text
+        Matcher matcher = pattern.matcher(text);
+
+        // Find matches
+        while (matcher.find()) {
+            System.out.println("Match found at index " + matcher.start() + ": " + matcher.group());
+        }
+    }
+}
