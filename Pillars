@@ -1,0 +1,17 @@
+package objectorientedpillars;
+
+public class ObjectOrientedDemo {
+ public static void main(String[] args) {
+     // Create a regular BankAccount object
+     BankAccount account1 = new BankAccount("12345", "Alice", 1000.0);
+     account1.deposit(500.0);
+     account1.withdraw(200.0);
+     account1.displayAccountInfo();
+
+     // Create a SavingsAccount object
+     SavingsAccount account2 = new SavingsAccount("67890", "Bob", 2000.0, 2.5);
+     account2.deposit(1000.0);
+     account2.withdraw(300.0);
+     account2.displayAccountInfo();
+ }
+}
