@@ -1,0 +1,35 @@
+package sleepandwait;
+
+class MyThread extends Thread {
+    public void run() {
+        synchronized (this) {
+            System.out.println("Thread is executing...");
+            try {
+                Thread.sleep(2000); // Sleep for 2 seconds
+                System.out.println("Thread woke up after sleep.");
+                this.wait(); // Wait until notified
+                System.out.println("Thread resumed execution after waiting.");
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrupted.");
+            }
+        }
+    }
+}
+
+public class sleepandwait {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+
+        synchronized (thread) {
+            thread.start();
+            try {
+                Thread.sleep(1000); // Sleep in the main thread for 1 second
+                System.out.println("Main thread woke up and is notifying the sleeping thread.");
+                thread.notify(); // Notify the sleeping thread
+                Thread.sleep(1000); // Sleep in the main thread for 1 second
+            } catch (InterruptedException e) {
+                System.out.println("Main thread interrupted.");
+            }
+        }
+    }
+}
