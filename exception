@@ -1,0 +1,32 @@
+package exceptions;
+
+    
+class AgeException extends Exception {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public AgeException(String message) {
+        super(message);
+    }
+}
+
+public class exceptionsexample {
+    public static void main(String[] args) {
+        try {
+            // Simulate a custom exception by checking a condition
+            int age = 15;
+            if (age < 18) {
+                throw new AgeException("You must be 18 or older to access this content.");
+            }
+            System.out.println("Access granted.");
+        } catch (AgeException e) {
+            System.out.println("Custom AgeException caught: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An exception occurred: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+    }
+}
