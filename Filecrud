@@ -1,0 +1,93 @@
+package Filecrud;
+
+import java.io.*;
+
+public class crud {
+    public static void main(String[] args) {
+        String fileName = "example.txt";
+
+        // Create a new file
+        createFile(fileName);
+
+        // Write data to the file
+        writeToFile(fileName, "This is some text.");
+
+        // Read and display the content of the file
+        String content = readFromFile(fileName);
+        System.out.println("File content: " + content);
+
+        // Update the file with new data
+        updateFile(fileName, "Updated text.");
+
+        // Read and display the updated content
+        content = readFromFile(fileName);
+        System.out.println("Updated file content: " + content);
+
+        // Delete the file
+        deleteFile(fileName);
+    }
+
+    // Create a new file
+    static void createFile(String fileName) {
+        try {
+            File file = new File(fileName);
+            if (file.createNewFile()) {
+                System.out.println("File created: " + fileName);
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Write data to a file
+    static void writeToFile(String fileName, String data) {
+        try {
+            FileWriter writer = new FileWriter(fileName);
+            writer.write(data);
+            writer.close();
+            System.out.println("Data written to the file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Read data from a file
+    static String readFromFile(String fileName) {
+        StringBuilder content = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content.toString();
+    }
+
+    // Update data in a file
+    static void updateFile(String fileName, String newData) {
+        try {
+            FileWriter writer = new FileWriter(fileName, false);
+            writer.write(newData);
+            writer.close();
+            System.out.println("File updated.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Delete a file
+    static void deleteFile(String fileName) {
+        File file = new File(fileName);
+        if (file.delete()) {
+            System.out.println("File deleted: " + fileName);
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+    }
+}
