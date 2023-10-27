@@ -1,0 +1,29 @@
+package Thread;
+
+//Creating a thread by extending the Thread class
+class MyThread extends Thread {
+ public void run() {
+     for (int i = 1; i <= 5; i++) {
+         System.out.println("Thread (extending Thread class): " + i);
+     }
+ }
+}
+
+//Creating a thread by implementing the Runnable interface
+class MyRunnable implements Runnable {
+ public void run() {
+     for (int i = 1; i <= 5; i++) {
+         System.out.println("Thread (implementing Runnable interface): " + i);
+     }
+ }
+}
+
+public class Threadclass {
+ public static void main(String[] args) {
+     MyThread thread1 = new MyThread();
+     Thread thread2 = new Thread(new MyRunnable());
+
+     thread1.start(); // Start the thread extending Thread class
+     thread2.start(); // Start the thread implementing Runnable interface
+ }
+}
