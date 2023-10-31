@@ -1,0 +1,42 @@
+package Elements;
+
+import java.util.Scanner;
+
+public class SumofnNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements (n): ");
+        int n = scanner.nextInt();
+        
+        if (n <= 0) {
+            System.out.println("Invalid input. Please enter a positive integer for n.");
+            return;
+        }
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        System.out.print("Enter the left range (L): ");
+        int L = scanner.nextInt();
+
+        System.out.print("Enter the right range (R): ");
+        int R = scanner.nextInt();
+
+        if (L < 0|| R >= n|| L > R) {
+            System.out.println("Invalid range input. Please ensure 0 <= L <= R <= n-1.");
+            return;
+        }
+
+        int sum = 0;
+        for (int i = L; i <= R; i++) {
+            sum += arr[i];
+        }
+
+        System.out.println("Sum of elements in the range [" + L + ", " + R + "] is: " + sum);
+    }
+}
