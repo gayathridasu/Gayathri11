@@ -1,0 +1,24 @@
+package Unsortedlist;
+
+import java.util.Arrays;
+
+public class FourthSmallestElement {
+    public static void main(String[] args) {
+        int[] unsortedList = {12, 8, 15, 4, 6, 10, 9, 3};
+        int fourthSmallest = findFourthSmallest(unsortedList);
+
+        System.out.println("The fourth smallest element is: " + fourthSmallest);
+    }
+
+    public static int findFourthSmallest(int[] arr) {
+        if (arr.length < 4) {
+            // Handle the case when there are less than 4 elements in the list
+            System.out.println("List has less than 4 elements.");
+            return -1; // You can choose an appropriate default value or handle this case differently
+        }
+
+        Arrays.sort(arr); // Sort the array in ascending order
+
+        return arr[3]; // The fourth smallest element is at index 3 (0-based indexing)
+    }
+}
